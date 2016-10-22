@@ -20,24 +20,4 @@ public class Person {
     public Address getAddress(){
         return _address;
     }
-    public String getAddressStr(){
-        return _addressStr;
-    }
-    
-    
-    public void setName(String name){
-        _name = name;
-    }
-    public void setPhone(String phone){
-        _phone = phone;
-    }
-    public void setEmail(String email){
-        _email = email;
-    }
-    public void setAddress(Address address){
-        _address = address;
-    }
-    public void setAddressStr(String address){
-        _addressStr = address;
-    }
 }

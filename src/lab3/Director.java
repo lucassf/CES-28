@@ -1,18 +1,18 @@
 package lab3;
 
+import languages.LanguageKit;
+import letterFormat.LetterBuilder;
+import java.util.Date;
+
 public class Director {
     private LetterBuilder _letterbuilder;
-    private LanguageKit _lang;
     
     public void setBuilder(LetterBuilder letterBuilder, int language){
-        _lang = LanguageKit.getFactory(language);
         this._letterbuilder = letterBuilder;
+        _letterbuilder.setLang(LanguageKit.getFactory(language));
     }
     
-    public void setData(Person sender,Person destinatary,String date){
-        _lang.formatPerson(sender);
-        _lang.formatPerson(destinatary);
-        _lang.formatDate(date);
+    public void setData(Person sender,Person destinatary,Date date){
         _letterbuilder.setSender(sender);
         _letterbuilder.setDestinatary(destinatary);
         _letterbuilder.setDate(date);

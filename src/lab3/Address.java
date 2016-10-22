@@ -1,6 +1,6 @@
 package lab3;
 
-class Address {
+public class Address {
     private String _name;
     private String _street;
     private String _number;
