@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import languages.LanguageKit;
 import lab3.Person;
+import languages.AbsFact;
 
 public abstract class LetterBuilder {
     
@@ -12,6 +13,7 @@ public abstract class LetterBuilder {
     
     private LanguageKit _lang;
     private Date _date;
+    private AbsFact _factory = new AbsFact();
     
     public abstract String header();
     public abstract String body();
@@ -63,5 +65,13 @@ public abstract class LetterBuilder {
     
     protected String strDate(){
         return (new SimpleDateFormat(_lang.formatDate())).format(_date);
+    }
+
+    public void changeComplexPhone() {
+        _lang = _factory.changeToComplexPhone();
+    }
+    
+    public void changeSimplePhone() {
+        _lang = _factory.changeToSimplePhone();
     }
 }

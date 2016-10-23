@@ -157,4 +157,32 @@ public class PTest {
             "Sent: "+strDatePortuguese;
         assertEquals(text,_director.model());
     }
+    
+    @Test
+    public void PortugueseComercialModelComplexPhone(){
+        String text;
+        
+        _letterbuilder = new ComercialLetterBuilder();
+        
+        _director.setBuilder(_letterbuilder,2);
+        _director.changeComplexPhone();
+        _director.setData(_sender, _destinatary, _date);
+        
+        
+        text = strDatePortuguese +"\n"+
+            "\n" +
+            "Sr. Lucas\n" +
+            "A:Rua H18C,112, CTA SJC;180-880\n" +
+            "DDD: 98 Tel: 28729.9600\n" +
+            "Sr. Gabriel\n" +
+            "B:Rua avSatelite,1, jardim Satelite SJC;180-881\n" +
+            "DDD: 98 Tel: 24329.9600\n" +
+            "\n" +
+            "Dear Sr. Gabriel\n" +
+            "\n" +
+            "Sincerely,\n" +
+            "Sr. Lucas";
+        assertEquals(text,_director.model());
+        
+    }
 }

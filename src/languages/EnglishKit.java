@@ -33,4 +33,9 @@ public class EnglishKit extends LanguageKit{
         return aux;
     }
     
+    @Override
+    public LanguageKit cloneLang(){
+        return new EnglishKit();
+    }
+    
 }

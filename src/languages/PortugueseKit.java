@@ -13,7 +13,7 @@ public class PortugueseKit extends LanguageKit{
     public String formatName(String name) {
         return "Sr. "+name;
     }
-
+    
     @Override
     public String formatPhone(String phone) {
         String _phone = phone;
@@ -33,4 +33,8 @@ public class PortugueseKit extends LanguageKit{
         return aux;
     }
     
+    @Override
+    public LanguageKit cloneLang(){
+        return new PortugueseKit();
+    }
 }
