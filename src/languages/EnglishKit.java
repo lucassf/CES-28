@@ -16,7 +16,7 @@ public class EnglishKit extends LanguageKit{
     
     @Override
     public String formatPhone(String phone) {
-        String _phone = phone;
+        String _phone;
         while (phone.length()<9){
             phone+="0";
         }
@@ -31,6 +31,11 @@ public class EnglishKit extends LanguageKit{
                 address.getNumber()+" "+address.getStreet()+","+
                 address.getCity()+" "+address.getState()+" "+address.getZip();
         return aux;
+    }
+    
+    @Override
+    public LanguageKit cloneLang(){
+        return new EnglishKit();
     }
     
 }

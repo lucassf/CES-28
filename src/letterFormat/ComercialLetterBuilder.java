@@ -1,7 +1,5 @@
 package letterFormat;
 
-import java.util.Date;
-
 public class ComercialLetterBuilder extends LetterBuilder {
 
     @Override

@@ -1,15 +1,44 @@
 package lab3;
 
-import languages.LanguageKit;
 import letterFormat.LetterBuilder;
 import java.util.Date;
+import languages.AbsFact;
+import languages.Language;
+import languages.LanguageKit;
 
 public class Director {
     private LetterBuilder _letterbuilder;
+    private LanguageKit _languagekit;
+    private final AbsFact _factory = new AbsFact();
     
-    public void setBuilder(LetterBuilder letterBuilder, int language){
+    public Director(){
+        _languagekit = AbsFact.getFactory(Language.ENGLISH);
+    }
+    
+    public void setBuilder(LetterBuilder letterBuilder){
         this._letterbuilder = letterBuilder;
-        _letterbuilder.setLang(LanguageKit.getFactory(language));
+        updateBuilderLanguage();
+    }
+    
+    private void updateBuilderLanguage(){
+        if (_letterbuilder!=null){
+            _letterbuilder.setLang(_languagekit);
+        }
+    }
+    
+    public void changeLanguage(Language language){
+        _languagekit = AbsFact.getFactory(language);
+        updateBuilderLanguage();
+    }
+    
+    public void changeComplexPhone(){
+        _languagekit = _factory.changeToComplexPhone();
+        updateBuilderLanguage();
+    }
+    
+    public void changeSimplePhone(){
+        _languagekit = _factory.changeToSimplePhone();
+        updateBuilderLanguage();
     }
     
     public void setData(Person sender,Person destinatary,Date date){
