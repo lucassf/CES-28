@@ -5,15 +5,12 @@ import lab4.ProdutoServico;
 public class NFBuilder {
     private NF nf;
     
-    public void build(ProdutoServico[] ps,int[] quantidade,double[] desconto,
-            String cpf,String nome) throws IllegalArgumentException{
-        if (ps.length==0)throw new IllegalArgumentException("Lista de itens vazia");
-        if (ps.length!=quantidade.length||desconto.length!=quantidade.length)
-            throw new IllegalArgumentException("Tamanho invalido da lista");
+    public void build(structIV[] sIV,String cpf,String nome) throws IllegalArgumentException{
+        if (sIV.length==0)throw new IllegalArgumentException("Lista de itens vazia");
         
-        IV[] iv = new IV[ps.length];
-        for (int i=0;i<ps.length;i++){
-            iv[i]=new IV(ps[i],quantidade[i], desconto[i]);
+        IV[] iv = new IV[sIV.length];
+        for (int i=0;i<sIV.length;i++){
+            iv[i]=new IV(sIV[i].ps,sIV[i].quantidade,sIV[i].desconto);
         }
         
         nf = new NF(iv, nome, cpf);
