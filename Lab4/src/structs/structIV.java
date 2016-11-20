@@ -1,6 +1,6 @@
-package NotaFiscal;
+package structs;
 
-import lab4.ProdutoServico;
+import PS.ProdutoServico;
 
 public class structIV {
     public ProdutoServico ps;

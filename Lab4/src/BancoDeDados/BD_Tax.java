@@ -1,6 +1,6 @@
 package BancoDeDados;
 
-public enum BD {
+enum BD_Tax {
     INSTANCE;
     
 }

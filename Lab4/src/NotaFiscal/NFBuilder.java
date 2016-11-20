@@ -1,19 +1,20 @@
 package NotaFiscal;
 
-import lab4.ProdutoServico;
+import structs.structIV;
+import PS.ProdutoServico;
 
 public class NFBuilder {
     private NF nf;
     
-    public void build(structIV[] sIV,String cpf,String nome) throws IllegalArgumentException{
-        if (sIV.length==0)throw new IllegalArgumentException("Lista de itens vazia");
+    public void build(structIV sIV,String cpf,String nome) throws IllegalArgumentException{
+        if (sIV == null||sIV.ps==null)throw new IllegalArgumentException("Lista de itens vazia");
         
-        IV[] iv = new IV[sIV.length];
-        for (int i=0;i<sIV.length;i++){
-            iv[i]=new IV(sIV[i].ps,sIV[i].quantidade,sIV[i].desconto);
-        }
-        
+        IV iv = new IV(sIV.ps,sIV.quantidade,sIV.desconto);
         nf = new NF(iv, nome, cpf);
+    }
+    
+    public void buildValidada(NF nf,double total){
+        this.nf = new NF(nf,total);
     }
     
     public NF getNF(){
